@@ -4,9 +4,8 @@ Rails.application.routes.draw do
   devise_for :users
   # , controllers: { registrations: 'registrations' }
 
-  resources :monthly_budgets do
-    resources :categories do
-      resources :expenses
-    end
+  resources :monthly_budgets
+  resources :categories do
+    resources :expenses
   end
 end
