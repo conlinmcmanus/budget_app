@@ -1,0 +1,26 @@
+<h1>Listing expenses for <%=@category.name%></h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Amount spent</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @expenses.each do |expense| %>
+  <tr>
+    <td><%= expense.name %></td>
+    <td><%= expense.amount_spent %></td>
+    <td><%= link_to 'Show', [expense.category, expense] %></td>
+    <td><%= link_to 'Edit', edit_category_expense_path(expense.category, expense) %></td>
+    <td><%= link_to 'Destroy', [expense.category, expense], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Expense', new_category_expense_path(params[:category_id]) %>
+<%= link_to 'Back', category_path(params[:category_id]) %>
