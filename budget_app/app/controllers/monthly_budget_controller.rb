@@ -1,2 +1,0 @@
-class MonthlyBudgetController < ApplicationController
-end
