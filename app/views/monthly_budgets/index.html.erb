@@ -1,1 +1,5 @@
 <h1>Monthly Budget</h1>
+<%= form_for :monthly_budget do |f| %>
+  Month: <%= f.text_field :month %>
+  <%= f.submit "Create Budget" %>
+<% end %>
