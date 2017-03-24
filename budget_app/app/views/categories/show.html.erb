@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @category.name %>
+</p>
+
+<p>
+  <strong>Target:</strong>
+  <%= @category.target %><br><br>
+  <strong>Spent so far:</strong>
+  <%= @category.expenses.pluck('amount_spent').sum %><br><br>
+  <strong>Budget left:</strong>
+  <%= @category.target - @category.expenses.pluck('amount_spent').sum %>
+</p>
+
+<%= link_to 'View expenses', category_expenses_path(@category) %> |
+<%= link_to 'Add expense', new_category_expense_path(@category) %> |
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', categories_path %>

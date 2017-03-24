@@ -1,0 +1,6 @@
+<h1>Editing expense</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', [@expense.category, @expense] %> |
+<%= link_to 'Back', category_expenses_path(@expense.category) %>
