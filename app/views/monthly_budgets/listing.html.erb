@@ -1,0 +1,5 @@
+<tbody>
+  <%@monthly_budgets.each do |monthly_budget|%>
+     <td><%= link_to "#{monthly_budget.month}", categories_path%></td><br>
+  <%end%>
+</tbody>

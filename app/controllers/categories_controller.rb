@@ -1,10 +1,12 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
+
   # GET /categories
   # GET /categories.json
   def index
     @categories = Category.all
+    @month = @@monthly_budget.month
   end
 
   # GET /categories/1
@@ -65,6 +67,7 @@ class CategoriesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_category
       @category = Category.find(params[:id])
+      @@category = @category
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
