@@ -1,8 +1,9 @@
+
 class MonthlyBudgetsController < ApplicationController
   before_action :authenticate_user!
+
   def index
   end
-
 
   def new
     @monthly_budget = MonthlyBudget.new
@@ -10,13 +11,14 @@ class MonthlyBudgetsController < ApplicationController
 
   def create
     @monthly_budget = MonthlyBudget.new monthly_budget_params
-
+    @monthly_budget.user = current_user
     if @monthly_budget.save
       flash[:success] = "#{@monthly_budget.month} was successfully created."
-      redirect_to monthly_budget_categories_path(params[:id])
+      redirect_to categories_path(params[:id])
     else
       flash[:danger] = "Must enter current month"
-      render :index
+     
+      render :new
     end
   end
 
