@@ -18,8 +18,10 @@ ActiveRecord::Schema.define(version: 20170324190148) do
   create_table "categories", force: :cascade do |t|
     t.text     "name"
     t.integer  "target"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "monthly_budget_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["monthly_budget_id"], name: "index_categories_on_monthly_budget_id", using: :btree
   end
 
   create_table "expenses", force: :cascade do |t|
